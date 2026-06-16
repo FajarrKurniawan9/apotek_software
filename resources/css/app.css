@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.tsx';
+@source '../**/*.ts';
+@source '../../node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ========================================
+   Thermal Printer CSS (58mm / 80mm)
+   ======================================== */
+@media print {
+    @page {
+        margin: 0;
+    }
+
+    body {
+        width: 58mm; /* Default thermal width */
+        font-size: 12px;
+        font-family: 'Courier New', monospace;
+        margin: 0;
+        padding: 0;
+        color: #000;
+        background: #fff;
+    }
+
+    /* Hide non-printable elements */
+    .no-print {
+        display: none !important;
+    }
+
+    /* 80mm thermal printer variant */
+    body.print-80mm {
+        width: 80mm;
+    }
+
+    /* Receipt styling */
+    .receipt-divider {
+        border-top: 1px dashed #000;
+        margin: 4px 0;
+    }
+
+    .receipt-text-center {
+        text-align: center;
+    }
+
+    .receipt-text-right {
+        text-align: right;
+    }
+
+    .receipt-bold {
+        font-weight: bold;
+    }
+}
