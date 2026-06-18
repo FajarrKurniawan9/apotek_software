@@ -8,15 +8,21 @@ use Inertia\Inertia;
 
 class AuthController extends Controller
 {
+    /**
+     * Show the login page.
+     */
     public function show()
     {
         return Inertia::render('Auth/Login');
     }
 
+    /**
+     * Handle an authentication attempt.
+     */
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required', 'string'],
             'password' => ['required'],
         ]);
 
@@ -27,10 +33,13 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            'username' => 'Username atau password salah.',
+        ])->onlyInput('username');
     }
 
+    /**
+     * Log the user out.
+     */
     public function logout(Request $request)
     {
         Auth::logout();

@@ -3,6 +3,7 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
+@source '../**/*.jsx';
 @source '../**/*.tsx';
 @source '../**/*.ts';
 @source '../../node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}';
